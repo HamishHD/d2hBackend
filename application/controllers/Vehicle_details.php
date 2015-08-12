@@ -16,4 +16,15 @@
  	 	 $message['json']=$this->model->get_all(); 
  	 	 $this->load->view('json', $message); 
  	 } 
+ 	 public function positionofdriver()
+ 	 {
+ 	 	$location = $this->input->get('location');
+ 	 	$type = $this->input->get('type');
+ 	 	$data = json_decode($location); 	 
+ 	 	$latitude = $data->latitude;
+ 	 	$longitude = $data->longitude;
+ 	 	$message['json'] = $this->model->positionofdriver($latitude,$longitude,$type);
+ 	 	$this->load->view('json', $message);
+
+ 	 }
  }
