@@ -15,12 +15,41 @@
  		$long1 = $long-0.50;
  		$long2 = $long+0.50;
 
- 	 	$sql = "SELECT `register`.`id` AS `vendorid`, `register`.`firstname` AS `vendorname`, `register`.`route` AS `preferedroute`, `vehicle_details`.`id` AS `vehicleid`, `vehicle_details`.`make` AS `vehiclemake`, `vehicle_details`.`model` AS `vehiclemodel`, `vehicle_info`.`vehiclepic` AS `vehiclephoto` FROM `register`
+ 	 	
+			
+			if ($type=='tourist')
+			{
+				$sql = "SELECT `register`.`id` AS `vendorid`, `register`.`firstname` AS `vendorname`, `register`.`route` AS `preferedroute`, `vehicle_details`.`id` AS `vehicleid`, `vehicle_details`.`make` AS `vehiclemake`, `vehicle_details`.`model` AS `vehiclemodel`, `vehicle_info`.`vehiclepic` AS `vehiclephoto` 
+			FROM `register`
 			INNER JOIN `vehicle_details` ON `register`.`id` =`vehicle_details`.`pid` 
 			INNER JOIN `vehicle_info` ON `register`.`id`=`vehicle_info`.`pid` 
-			WHERE (`register`.`latitude` BETWEEN $lat1 AND $lat2) AND (`register`.`longitude` BETWEEN $long1 AND $long2) AND (`vehicle_details`.`v_type`= '$type')";
-		$query = $this->db->query($sql)->result();
- 		return $query;
+			WHERE (`register`.`latitude` BETWEEN $lat1 AND $lat2) 
+			    AND (`register`.`longitude` BETWEEN $long1 AND $long2) 
+			    AND (`vehicle_details`.`v_type`= '$type')";
+		 
+		        $query = $this->db->query($sql)->result();
+				return $query;
+			}
+			else if ($type=='transporter')
+			{
+              $sql = "SELECT `register`.`id` AS `vendorid`, `register`.`firstname` AS `vendorname`, `register`.`route` AS `preferedroute`, `vehicle_details`.`id` AS `vehicleid`, `vehicle_details`.`make` AS `vehiclemake`, `vehicle_details`.`model` AS `vehiclemodel`, `vehicle_info`.`vehiclepic` AS `vehiclephoto`, `vehicle_details`.`trolley_length` AS `trollylength`, `vehicle_details`.`ton` AS `ton`
+			FROM `register`
+			INNER JOIN `vehicle_details` ON `register`.`id` =`vehicle_details`.`pid` 
+			INNER JOIN `vehicle_info` ON `register`.`id`=`vehicle_info`.`pid`			
+			WHERE `register`.`latitude` BETWEEN $lat1 AND $lat2 
+			    AND `register`.`longitude` BETWEEN $long1 AND $long2 
+			    AND `vehicle_details`.`v_type`= '$type'";
+			    
+		 
+		        $query = $this->db->query($sql)->result();
+				return $query;
+			}	              
+			else
+			{
+              return false;
+			}
+		
+ 		
  	 }
  } 
  

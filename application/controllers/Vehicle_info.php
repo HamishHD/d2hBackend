@@ -17,14 +17,14 @@
  	 	 $this->load->view('json', $message); 
  	 } 
 
- 	 public function Vehicleinfo()
+ 	 public function vehicleinfo()
  	 {
  	 	$type = $this->input->get('type');
  	 	$location = $this->input->get('location'); 	 	
- 	 	$data = json_decode($location); 	 
- 	 	$latitude = $data->latitude;
- 	 	$longitude = $data->longitude;
- 	 	$message['json'] = $this->model->Vehicleinfo($latitude,$longitude,$type);
+ 	 	$location = json_decode($location); 	 
+ 	 	$latitude = $location->latitude;
+ 	 	$longitude = $location->longitude;
+ 	 	$message['json'] = $this->model->vehicleinfo($latitude,$longitude,$type);
  	 	$this->load->view('json', $message);
 
 
