@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2015 at 04:04 PM
+-- Generation Time: Aug 13, 2015 at 05:56 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -386,10 +386,12 @@ CREATE TABLE IF NOT EXISTS `register` (
 --
 
 INSERT INTO `register` (`id`, `firstname`, `lastname`, `email`, `phone`, `password`, `status`, `date`, `vehicle_count`, `type`, `state`, `city`, `suburb`, `pincode`, `landline`, `email_verify`, `latitude`, `longitude`, `activation_code`, `route`, `package_id`, `vehicle_pref`, `taxi_type`, `agent_id`, `updated`, `end_state`, `end_city`, `end_suburb`, `end_latitude`, `end_longitude`, `callcenter_control`, `keyword`) VALUES
-(1, 'raj', 'thakrey', 'rajthakrey@gamil.com', '787878787', 'raj123456', 'active', '0000-00-00 00:00:00', 1, 'car', 0, 0, 'mumbaisub', '400098', '0225444454545', 0, 19.5, 23.5, '', 'mumbai-pune', 0, '', 'AC', 0, 1, 0, 0, 0, 0, 0, '', ''),
-(2, 'hamish', 'dsouza', 'haish@gmail.com', '9869545466', 'hamish', 'active', '0000-00-00 00:00:00', 1, 'car', 0, 0, '', '', '', 0, 19.5, 23.5, '', 'mumbai-goa', 0, '', 'AC', 0, 1, 0, 0, 0, 0, 0, '', ''),
-(3, 'alex', 'ferguson', 'imalex@gmail.com', '9869545466', 'alex', 'active', '0000-00-00 00:00:00', 1, 'car', 0, 0, '', '', '', 0, 19.5, 23.5, '', 'mumbai-goa', 0, '', 'AC', 0, 1, 0, 0, 0, 0, 0, '', ''),
-(4, 'shahruk ', 'khan', 'srk@gmail.com', '9897797979', '454545', 'active', '2015-08-06 00:00:00', 0, '', 0, 0, '', '', '', 0, 19.5, 23.5, '', '', 0, '', 'AC', 0, 1, 0, 0, 0, 0, 0, '', '');
+(1, 'raj', 'thakrey', 'rajthakrey@gamil.com', '787878787', 'raj123456', 'active', '0000-00-00 00:00:00', 1, 'tourist', 0, 0, 'mumbaisub', '400098', '0225444454545', 0, 19.5, 23.5, '', 'mumbai-pune', 0, '', 'AC', 0, 1, 0, 0, 0, 0, 0, '', ''),
+(2, 'hamish', 'dsouza', 'haish@gmail.com', '9869545466', 'hamish', 'active', '0000-00-00 00:00:00', 1, 'tourist', 0, 0, '', '', '', 0, 19.5, 23.5, '', 'mumbai-goa', 0, '', 'AC', 0, 1, 0, 0, 0, 0, 0, '', ''),
+(3, 'alex', 'ferguson', 'imalex@gmail.com', '9869545466', 'alex', 'active', '0000-00-00 00:00:00', 1, 'tourist', 0, 0, '', '', '', 0, 19.5, 23.5, '', 'mumbai-goa', 0, '', 'AC', 0, 1, 0, 0, 0, 0, 0, '', ''),
+(4, 'shahruk ', 'khan', 'srk@gmail.com', '9897797979', '454545', 'active', '2015-08-06 00:00:00', 0, 'tourist', 0, 0, '', '', '', 0, 19.5, 23.5, '', '', 0, '', 'AC', 0, 1, 0, 0, 0, 0, 0, '', ''),
+(5, 'hashim', 'shaikh', 'hashim@gmail.com', '988979875', '123456', 'active', '0000-00-00 00:00:00', 0, 'transporter', 0, 0, '', '', '', 0, 19.5, 23.5, '', '', 0, '', '', 0, 1, 0, 0, 0, 0, 0, '', ''),
+(6, 'bhai', 'jagtap', 'bhaij@gmail.com', '789898445', '124566', 'active', '0000-00-00 00:00:00', 0, 'transporter', 0, 0, '', '', '', 0, 19.5, 23.5, '', '', 0, '', '', 0, 1, 0, 0, 0, 0, 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -793,10 +795,12 @@ CREATE TABLE IF NOT EXISTS `vehicle_details` (
 --
 
 INSERT INTO `vehicle_details` (`id`, `pid`, `make`, `model`, `maxrate`, `minrate`, `taxi`, `unionnew`, `trolley_length`, `ton`, `return_route`, `v_type`, `wheels`, `status`, `balance`, `sms_count`, `tempo_type`, `reg_date`, `last_search_date`, `latitude`, `longitude`, `agent_id`, `return_date`, `return_home`, `return_status`, `taxi_type`, `selfdrive`, `sub_vendor_contact`) VALUES
-(1, 1, 'maruti', '800', 15, 10, '6k8hkhb', 'jbsjxjbsx', 15, 1, 'ghatkopaer', 'car', 4, 'act', 200, 10, 'idk', '2015-08-04 00:00:00', '2015-08-10 00:00:00', 19.5, 23.5, 122, '2015-08-11', 'pune', 'no_return', 'car', 'no', '898989'),
-(2, 2, 'toyota', 'innova', 15, 12, 'fgf', 'sdg', 5, 1, 'ghatkopar', 'car', 4, 'active', 500, 12, 'jhgvh', '2015-08-02 00:00:00', '2015-08-03 00:00:00', 23.5, 30.23, 0, '0000-00-00', NULL, '', '', '', ''),
-(3, 3, 'rollsroyes', 'ghost', 1500, 1400, 'jhfhj', 'vhvgh', 1, 1, 'ghatkopar', 'car', 4, 'active', 12, 1, 'jhvhj', '2015-08-01 00:00:00', '2015-08-03 00:00:00', 0, 0, 0, '0000-00-00', 'ghatkoapr', '', '', '', ''),
-(4, 4, 'chervolate', 'tavera', 156, 120, 'jvax', 'hvhjv', 1, 1, 'ghatkopar', 'car', 4, 'active', 125, 1, 'hbhj', '2015-08-01 00:00:00', '2015-08-04 00:00:00', 0, 0, 0, '0000-00-00', 'b dsb', '', '', '', '');
+(1, 1, 'maruti', '800', 15, 10, '6k8hkhb', 'jbsjxjbsx', 15, 1, 'ghatkopaer', 'tourist', 4, 'act', 200, 10, 'idk', '2015-08-04 00:00:00', '2015-08-10 00:00:00', 19.5, 23.5, 122, '2015-08-11', 'pune', 'no_return', 'car', 'no', '898989'),
+(2, 2, 'toyota', 'innova', 15, 12, 'fgf', 'sdg', 5, 1, 'ghatkopar', 'tourist', 4, 'active', 500, 12, 'jhgvh', '2015-08-02 00:00:00', '2015-08-03 00:00:00', 19.5, 23.5, 0, '0000-00-00', NULL, '', '', '', ''),
+(3, 3, 'rollsroyes', 'ghost', 1500, 1400, 'jhfhj', 'vhvgh', 1, 1, 'ghatkopar', 'tourist', 4, 'active', 12, 1, 'jhvhj', '2015-08-01 00:00:00', '2015-08-03 00:00:00', 19.5, 23.5, 0, '0000-00-00', 'ghatkoapr', '', '', '', ''),
+(4, 4, 'chervolate', 'tavera', 156, 120, 'jvax', 'hvhjv', 1, 1, 'ghatkopar', 'tourist', 4, 'active', 125, 1, 'hbhj', '2015-08-01 00:00:00', '2015-08-04 00:00:00', 19.5, 23.5, 0, '0000-00-00', 'b dsb', '', '', '', ''),
+(5, 5, 'tata', 'ace', 2000, 1900, 'bsdab', 'bkjbjk', 12, 1, 'chembur', 'transporter', 4, 'active', 1200, 1, 'vasdhjv', '2015-08-01 00:00:00', '2015-08-03 00:00:00', 19.5, 23.5, 0, '0000-00-00', 'yes', '', '', '', ''),
+(6, 6, 'tata', 'leyand', 0, 0, 'hvdshja', 'jbkjb', 10, 12, 'kjbjk', 'transporter', 4, 'active', 4512, 1, 'jbjk', '2015-08-05 00:00:00', '2015-08-06 00:00:00', 19.5, 23.5, 0, '0000-00-00', NULL, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -894,10 +898,12 @@ CREATE TABLE IF NOT EXISTS `vehicle_info` (
 --
 
 INSERT INTO `vehicle_info` (`id`, `rtono`, `fname`, `lname`, `state`, `suburb`, `pincode`, `permit`, `vehiclename`, `model`, `taxi`, `vehicletype`, `seater`, `makeyear`, `city1`, `city2`, `pid`, `vehiclepic`, `cadd`, `cadd1`, `trollylength`, `capacity`, `wheels`, `route`, `status`, `contact`, `city_id`, `state_id`, `valance`, `search_count`, `latitude`, `longitude`, `date`, `v_type`, `description`, `return_from`, `return_date`, `last_search_date`, `localunion`, `minvalue`, `extravalue`) VALUES
-(1, 'mh03', 'raj', 'thakrey', 'maharashtra', 'mumbai', 400098, 'marruti', 'maruti', '800', '', 'car', 4, 2008, 'mumabi', 'pune', 1, 'http://dial2hire.com/images/tourist_images/Toyota/innova_small.jpg', '', '', 0, 0, 4, 'mumbai-pune', 'active', '98989898', '', '', 0, 0, 0, 0, '0000-00-00 00:00:00', 'car', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', ''),
-(2, 'mh03', 'hamish', 'dsouza', 'maharashtra', 'mumbai', 400098, 'vv', 'toyota innova', 'innova', 'vbh', 'car', 4, 2008, 'mumbai', 'goa', 2, 'http://dial2hire.com/images/tourist_images/Tata/Tata%20Indigo%20CS_150%20X%20112.jpg', '', '', 0, 0, 0, '', '', '', '', '', 0, 0, 0, 0, '0000-00-00 00:00:00', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', ''),
-(3, 'mh03', 'alex', 'ferguson', 'maharashtra', 'mumbai', 400654, 'nbn', 'rollsroyes', 'ghost', '  nb b ', 'car', 4, 2008, 'mumbai', 'goa', 3, 'http://dial2hire.com/images/tourist_images/maruti/maruti%20swift%20dzire_150%20X%20112.jpg', '', '', 0, 0, 0, '', '', '', '', '', 0, 0, 0, 0, '0000-00-00 00:00:00', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', ''),
-(4, 'mh03', 'shahruk', 'khan', 'maharashtra', 'mumbai', 400654, 'nbn', 'chervolate', 'tavera', '  nb b ', 'car', 4, 2008, 'mumbai', 'goa', 4, 'http://dial2hire.com/images/tourist_images/maruti/maruti%20swift%20dzire_150%20X%20112.jpg', '', '', 0, 0, 0, '', '', '', '', '', 0, 0, 0, 0, '0000-00-00 00:00:00', '', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '');
+(1, 'mh03', 'raj', 'thakrey', 'maharashtra', 'mumbai', 400098, 'marruti', 'maruti', '800', '', 'car', 4, 2008, 'mumabi', 'pune', 1, 'http://dial2hire.com/images/tourist_images/Toyota/innova_small.jpg', '', '', 15, 0, 4, 'mumbai-pune', 'active', '98989898', '', '', 0, 0, 19.5, 23.5, '0000-00-00 00:00:00', 'tourist', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', ''),
+(2, 'mh03', 'hamish', 'dsouza', 'maharashtra', 'mumbai', 400098, 'vv', 'toyota innova', 'innova', 'vbh', 'car', 4, 2008, 'mumbai', 'goa', 2, 'http://dial2hire.com/images/tourist_images/Tata/Tata%20Indigo%20CS_150%20X%20112.jpg', '', '', 5, 0, 0, '', '', '', '', '', 0, 0, 19.5, 23.5, '0000-00-00 00:00:00', 'tourist', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', ''),
+(3, 'mh03', 'alex', 'ferguson', 'maharashtra', 'mumbai', 400654, 'nbn', 'rollsroyes', 'ghost', '  nb b ', 'car', 4, 2008, 'mumbai', 'goa', 3, 'http://dial2hire.com/images/tourist_images/maruti/maruti%20swift%20dzire_150%20X%20112.jpg', '', '', 1, 0, 0, '', '', '', '', '', 0, 0, 19.5, 23.5, '0000-00-00 00:00:00', 'tourist', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', ''),
+(4, 'mh03', 'shahruk', 'khan', 'maharashtra', 'mumbai', 400654, 'nbn', 'chervolate', 'tavera', '  nb b ', 'car', 4, 2008, 'mumbai', 'goa', 4, 'http://dial2hire.com/images/tourist_images/maruti/maruti%20swift%20dzire_150%20X%20112.jpg', '', '', 1, 0, 0, '', '', '', '', '', 0, 0, 19.5, 23.5, '0000-00-00 00:00:00', 'tourist', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', ''),
+(5, 'mh03', 'hashim', 'shaikh', 'maharashtra', 'mumbai', 400077, 'vhjv', 'tata ace', 'ace', 'jbjk', 'transporter', 4, 2005, 'mumbai', 'chenni', 5, 'http://dial2hire.com/images/tempo_images/Tata/lpt-407.jpg', '', '', 12, 0, 0, '', '', '', '', '', 0, 0, 19.5, 23.5, '0000-00-00 00:00:00', 'transporter', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', ''),
+(6, 'mh03', 'bhai', 'jagtap', 'maharashta', 'mumbai', 400055, 'hdah', 'tata ', 'leyland', 'hb', 'transporter', 4, 2006, 'mumbai', 'ooty', 6, 'http://dial2hire.com/images/tempo_images/Tata/lpt-1109.jpg', '', '', 10, 0, 0, '', '', '', '', '', 0, 0, 19.5, 23.5, '0000-00-00 00:00:00', 'transporter', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', '');
 
 -- --------------------------------------------------------
 
