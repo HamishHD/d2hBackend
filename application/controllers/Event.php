@@ -8,7 +8,7 @@
  	 function __construct(){ 
  	 	 parent::__construct(); 
  
- 	 	 $this->load->model('Event_Model', 'model'); 
+ 	 	 $this->load->model('Event_model', 'model'); 
  	 } 
 
  	 public function index() 

@@ -1,7 +1,7 @@
 <?php 
  defined('BASEPATH') OR exit('No direct script access allowed'); 
  
- class Taxi_info_Model extends PIXOLO_Model 
+ class Taxi_info_model extends PIXOLO_Model 
  { 
 	 public $_table = 'taxi_info';  
  

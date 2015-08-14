@@ -1,7 +1,7 @@
 <?php 
  defined('BASEPATH') OR exit('No direct script access allowed'); 
  
- class Vehicle_detail_Model extends PIXOLO_Model 
+ class Vehicle_detail_model extends PIXOLO_Model 
  { 
 
  
@@ -17,7 +17,7 @@
  		$sql = "SELECT * FROM `vehicle_details` WHERE (`latitude` BETWEEN $lat1 AND $lat2) AND (`longitude` BETWEEN $long1 AND $long2) AND (`v_type`= '$type')";
  		$query = $this->db->query($sql)->result();
  		return $query;
- 		//print_r($sql);
+ 		
  	}
  } 
  

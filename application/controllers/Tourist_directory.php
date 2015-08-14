@@ -8,7 +8,7 @@
  	 function __construct(){ 
  	 	 parent::__construct(); 
  
- 	 	 $this->load->model('Tourist_directory_Model', 'model'); 
+ 	 	 $this->load->model('Tourist_directory_model', 'model'); 
  	 } 
 
  	 public function index() 

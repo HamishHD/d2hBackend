@@ -8,7 +8,7 @@
  	 function __construct(){ 
  	 	 parent::__construct(); 
  
- 	 	 $this->load->model('Package_report_Model', 'model'); 
+ 	 	 $this->load->model('Package_report_model', 'model'); 
  	 } 
 
  	 public function index() 

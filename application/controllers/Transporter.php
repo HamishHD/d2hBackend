@@ -8,7 +8,7 @@
  	 function __construct(){ 
  	 	 parent::__construct(); 
  
- 	 	 $this->load->model('Transporter_Model', 'model'); 
+ 	 	 $this->load->model('Transporter_model', 'model'); 
  	 } 
 
  	 public function index() 

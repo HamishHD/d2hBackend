@@ -9,7 +9,7 @@
  	 { 
  	 	 parent::__construct(); 
  
- 	 	 $this->load->model('User_Model', 'model'); 
+ 	 	 $this->load->model('User_model', 'model'); 
  	 } 
 
  	 public function index() 

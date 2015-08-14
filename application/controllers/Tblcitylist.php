@@ -8,7 +8,7 @@
  	 function __construct(){ 
  	 	 parent::__construct(); 
  
- 	 	 $this->load->model('Tblcitylist_Model', 'model'); 
+ 	 	 $this->load->model('Tblcitylist_model', 'model'); 
  	 } 
 
  	 public function index() 

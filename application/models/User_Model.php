@@ -1,7 +1,7 @@
 <?php 
  defined('BASEPATH') OR exit('No direct script access allowed'); 
  
- class User_Model extends PIXOLO_Model 
+ class User_model extends PIXOLO_Model 
  { 
 
  

@@ -8,7 +8,7 @@
  	 function __construct(){ 
  	 	 parent::__construct(); 
  
- 	 	 $this->load->model('Tempo_city_description_Model', 'model'); 
+ 	 	 $this->load->model('Tempo_city_description_model', 'model'); 
  	 } 
 
  	 public function index() 

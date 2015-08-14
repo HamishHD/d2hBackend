@@ -1,7 +1,7 @@
 <?php 
  defined('BASEPATH') OR exit('No direct script access allowed'); 
  
- class Event_Model extends PIXOLO_Model 
+ class Event_model extends PIXOLO_Model 
  { 
 	 public $_table = 'event';  
  

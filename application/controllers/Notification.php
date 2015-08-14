@@ -8,7 +8,7 @@
  	 function __construct(){ 
  	 	 parent::__construct(); 
  
- 	 	 $this->load->model('Notification_Model', 'model'); 
+ 	 	 $this->load->model('Notification_model', 'model'); 
  	 } 
 
  	 public function index() 

@@ -1,7 +1,7 @@
 <?php 
  defined('BASEPATH') OR exit('No direct script access allowed'); 
  
- class Vehicle_info_Model extends PIXOLO_Model 
+ class Vehicle_info_model extends PIXOLO_Model 
  { 
 	 public $_table = 'vehicle_info';  
  
@@ -19,7 +19,7 @@
 			
 			if ($type=='tourist')
 			{
-				$sql = "SELECT `register`.`id` AS `vendorid`, `register`.`firstname` AS `vendorname`, `register`.`route` AS `preferedroute`, `vehicle_details`.`id` AS `vehicleid`, `vehicle_details`.`make` AS `vehiclemake`, `vehicle_details`.`model` AS `vehiclemodel`, `vehicle_info`.`vehiclepic` AS `vehiclephoto` 
+				$sql = "SELECT `register`.`id` AS `vendorid`, `register`.`firstname` AS `vendorname`, `register`.`lastname` AS `lastname`,`register`.`route` AS `preferedroute`, `vehicle_details`.`id` AS `vehicleid`, `vehicle_details`.`make` AS `vehiclemake`, `vehicle_details`.`model` AS `vehiclemodel`, `vehicle_info`.`vehiclepic` AS `vehiclephoto` 
 			FROM `register`
 			INNER JOIN `vehicle_details` ON `register`.`id` =`vehicle_details`.`pid` 
 			INNER JOIN `vehicle_info` ON `register`.`id`=`vehicle_info`.`pid` 
@@ -29,10 +29,11 @@
 		 
 		        $query = $this->db->query($sql)->result();
 				return $query;
+				
 			}
 			else if ($type=='transporter')
 			{
-              $sql = "SELECT `register`.`id` AS `vendorid`, `register`.`firstname` AS `vendorname`, `register`.`route` AS `preferedroute`, `vehicle_details`.`id` AS `vehicleid`, `vehicle_details`.`make` AS `vehiclemake`, `vehicle_details`.`model` AS `vehiclemodel`, `vehicle_info`.`vehiclepic` AS `vehiclephoto`, `vehicle_details`.`trolley_length` AS `trollylength`, `vehicle_details`.`ton` AS `ton`
+              $sql = "SELECT `register`.`id` AS `vendorid`, `register`.`firstname` AS `vendorname`, `register`.`lastname` AS `lastname`,`register`.`route` AS `preferedroute`, `vehicle_details`.`id` AS `vehicleid`, `vehicle_details`.`make` AS `vehiclemake`, `vehicle_details`.`model` AS `vehiclemodel`, `vehicle_info`.`vehiclepic` AS `vehiclephoto`, `vehicle_details`.`trolley_length` AS `trollylength`, `vehicle_details`.`ton` AS `ton`
 			FROM `register`
 			INNER JOIN `vehicle_details` ON `register`.`id` =`vehicle_details`.`pid` 
 			INNER JOIN `vehicle_info` ON `register`.`id`=`vehicle_info`.`pid`			
