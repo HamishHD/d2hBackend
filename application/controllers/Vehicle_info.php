@@ -17,17 +17,5 @@
  	 	 $this->load->view('json', $message); 
  	 } 
 
- 	 public function vehicleinfo()
- 	 {
- 	 	$type = $this->input->get('type');
- 	 	$location = $this->input->get('location'); 	 	
- 	 	$location = json_decode($location); 	 
- 	 	$latitude = $location->latitude;
- 	 	$longitude = $location->longitude;
- 	 	$message['json'] = $this->model->vehicleinfo($latitude,$longitude,$type);
- 	 	$this->load->view('json', $message);
-
-
- 	 }
-
+ 	 
  }

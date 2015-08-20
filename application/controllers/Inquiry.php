@@ -27,7 +27,14 @@
  	 	$ip = $data->ip;
  	 	$fromloc = $data->fromloc;
  	 	$toloc = $data->toloc;
- 	 	$message['json'] = $this->model->Inquiry($vehicleid,$name, $email, $mobile, $ip, $fromloc, $toloc);
+ 	 	$message['json'] = $this->model->Inquiry($vehicleid, $name, $email, $mobile, $ip, $fromloc, $toloc);
  	 	$this->load->view('json', $message);
+ 	 }
+
+ 	 public function inquiriesbydriverid()
+ 	 {
+ 	 	$id = $this->input->get('id');
+ 	 	$message['json'] = $this->model->inquiriesbydriverid($id);
+ 	 	$this->load->view('json', $message); 
  	 }
  }
