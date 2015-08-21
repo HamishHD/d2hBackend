@@ -16,4 +16,12 @@
  	 	 $message['json']=$this->model->get_all(); 
  	 	 $this->load->view('json', $message); 
  	 } 
- }
+
+ 	 public function driverlogin()
+ 	 {
+ 	 	$phone = $this->input->get('phone');
+ 	 	$message['json'] = $this->model->driverlogin($phone);
+ 	 	$this->load->view('json', $message); 
+ 	 }
+
+ 	 }
