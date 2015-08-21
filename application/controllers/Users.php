@@ -18,13 +18,22 @@
  	 	 $this->load->view('json', $message); 
  	 } 
 
- 	 public function addusers()
+ 	 public function login()
  	 { 	    
- 	 	$data = $this->input->get('data');
- 	 	$data = json_decode($data);
- 	 	$fullname = $data->fullname;
- 	 	$mobileno = $data->mobileno;
- 	 	$message['json'] = $this->model->addusers($fullname,$mobileno);
+ 	 	
+ 	 	$contact = $this->input->get('contact');
+ 	 	$message['json'] = $this->model->login($contact);
  	 	$this->load->view('json', $message);
+ 	 }
+
+ 	 public function addusers()
+ 	 {
+ 	 	$data = $this->input->get('data'); 	 	
+ 	 	$data = json_decode($data); 	 
+ 	 	$name = $data->name;
+ 	 	$contact = $data->contact;
+ 	 	$message['json'] = $this->model->addusers($name,$contact);
+ 	 	$this->load->view('json', $message);
+
  	 }
  }

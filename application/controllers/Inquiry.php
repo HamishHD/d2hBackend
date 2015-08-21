@@ -21,13 +21,11 @@
  	 	$data = $this->input->get('data');
  	 	$data = json_decode($data); 	  
  	 	$vehicleid = $data->vehicleid;
- 	 	$name = $data->name;
- 	 	$email = $data->email;
- 	 	$mobile = $data->mobile; 
+ 	 	$userid = $data->userid;	 	
  	 	$ip = $data->ip;
  	 	$fromloc = $data->fromloc;
  	 	$toloc = $data->toloc;
- 	 	$message['json'] = $this->model->Inquiry($vehicleid, $name, $email, $mobile, $ip, $fromloc, $toloc);
+ 	 	$message['json'] = $this->model->Inquiry($vehicleid, $userid, $ip, $fromloc, $toloc);
  	 	$this->load->view('json', $message);
  	 }
 
@@ -37,4 +35,18 @@
  	 	$message['json'] = $this->model->inquiriesbydriverid($id);
  	 	$this->load->view('json', $message); 
  	 }
+
+ 	  public function changedriverinquirystatusbyid()
+ 	  {
+ 	  	$id = $this->input->get('id');
+ 	  	$message['json'] = $this->model->changedriverinquirystatusbyid($id);
+ 	 	$this->load->view('json', $message); 
+ 	  }
+
+ 	   public function changeuserinquirystatusbyid()
+ 	  {
+ 	  	$id = $this->input->get('id');
+ 	  	$message['json'] = $this->model->changeuserinquirystatusbyid($id);
+ 	 	$this->load->view('json', $message); 
+ 	  }
  }
