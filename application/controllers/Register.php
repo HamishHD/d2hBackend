@@ -24,4 +24,12 @@
  	 	$this->load->view('json', $message); 
  	 }
 
+ 	 public function vendorlogin()
+ 	 {
+ 	 	$phone = $this->input->get('phone');
+ 	 	$message['json'] = $this->model->vendorlogin($phone);
+ 	 	$this->load->view('json', $message); 
+ 	 }
+
+ 	
  	 }

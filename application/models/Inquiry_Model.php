@@ -7,18 +7,20 @@
 	  //Write functions here 
  	 public function Inquiry($vehicleid, $userid, $ip, $fromloc, $toloc)
  	 {
- 	 	$query = $this->db->query("INSERT INTO `inquiry` (`vehicleid`, `mobile`, `ip`, `date`, `fromloc`, `toloc`,`userid`) VALUES ('$vehicleid', 'mobile', '$ip', NOW(), '$fromloc', '$toloc','$userid')");
+ 	 	
+ 	 	$sql2 = $this->db->query("SELECT `name`, `contact` FROM `users` WHERE `id`='$userid'")->row();
+
+ 	 	$query = $this->db->query("INSERT INTO `inquiry` (`vehicleid`, `name`, `mobile`, `ip`, `date`, `fromloc`, `toloc`,`userid`) VALUES ('$vehicleid', '$sql2->name', '$sql2->contact', '$ip', NOW(), '$fromloc', '$toloc','$userid')");
+ 	 	$id = $this->db->insert_id();
 
  	 	if($query==true)
  	 	{
- 	 		$rahul=(SELECT `vehicle_details`.`pid`, `register`.`firstname` FROM `vehicle_details` INNER JOIN `register` ON `register`.`id` = `vehicle_details`.`pid` WHERE `vehicle_details`.`id`);
- 	 		$sql = $this->db->query("SELECT `vehicle_details`.`pid`, `register`.`firstname` FROM `vehicle_details` INNER JOIN `register` ON `register`.`id` = `vehicle_details`.`pid` WHERE `vehicle_details`.`id` = $vehicleid")->row(); 
- 	 		print_r($rahul);
  	 		
- 	 		$sql2 = $this->db->query("SELECT `name`, `contact` FROM `users` WHERE `id`='$userid'")->row();
+ 	 		$sql = $this->db->query("SELECT `vehicle_details`.`pid`, `register`.`firstname` FROM `vehicle_details` INNER JOIN `register` ON `register`.`id` = `vehicle_details`.`pid` WHERE `vehicle_details`.`id` = $vehicleid")->row();  		
+ 	 		
  	 		
 
- 	 		$query = $this->db->query("INSERT INTO `cust_inquiry` (`name`, `mobile`, `ip`, `date`, `v_name`, `pid`,`userid`) VALUES ('$sql2->name', '$sql2->contact', '$ip', NOW(), '$sql->firstname', '$sql->pid','$userid')");
+ 	 		$query = $this->db->query("INSERT INTO `cust_inquiry` (`inq_no`,`name`, `mobile`, `ip`, `date`, `v_name`, `pid`,`userid`) VALUES ('$id', '$sql2->name', '$sql2->contact', '$ip', NOW(), '$sql->firstname', '$sql->pid','$userid')");
 
  	 		if($query==true)	
  	 		{
@@ -70,7 +72,7 @@
  	 {
  	 	$sql = "SELECT `useraccept` FROM `inquiry` WHERE `inq_no`= '$id'";
  	 	$query = $this->db->query($sql)->row();
- 	 		if($query->driveraccept == '1')
+ 	 		if($query->useraccept == '1')
  	 	{
  	 		$value=0;
 
@@ -86,7 +88,80 @@
   	 	    {
   	 	    	return $value;
   	 	    };
-  	 }	    
+  	 }	
+
+
+  	 public function checkuserstatusbyinquiryid($id)
+  	 {
+  	 	$sql = "SELECT `useraccept` FROM `inquiry` WHERE `inq_no`= '$id'";
+ 	 	$query = $this->db->query($sql)->row();
+ 	 		if($query->useraccept == '1')
+ 	 		{
+ 	 			return true;
+ 	 		}
+ 	 		else
+ 	 		{
+ 	 			return false;
+ 	 		};	 		
+
+
+  	 }  
+
+  	 public function checkdriverstatusbyinquiryid($id)
+  	 {
+  	 	$sql = "SELECT `driveraccept` FROM `inquiry` WHERE `inq_no`= '$id'";
+ 	 	$query = $this->db->query($sql)->row();
+ 	 		if($query->driveraccept == '1')
+ 	 		{
+ 	 			return true;
+ 	 		}
+ 	 		else
+ 	 		{
+ 	 			return false;
+ 	 		};	
+
+
+  	 }  
+
+  	 public function vehicleinquiry($phone)
+  	 {
+  	 	$query = $this->db->query("SELECT `id` FROM `vehicle_details` WHERE `sub_vendor_contact`='$phone'");
+ 		
+ 		if ($query->num_rows() > 0)
+ 			{
+ 			 $query=$query->row();
+
+			 $query = $this->db->query("SELECT `inquiry`.`inq_no` AS `inqno`, `inquiry`.`vehicleid` AS `vehicleid`, `inquiry`.`userid` AS `userid`, `inquiry`.`name` AS `username`, `inquiry`.`mobile` AS `usermobile`, `inquiry`.`useraccept`, `inquiry`.`driveraccept`, `inquiry`.`fromloc`, `inquiry`.`toloc`, `cust_inquiry`.`v_type` AS `vehicletype`, `cust_inquiry`.`v_rto` AS `rtono` 
+								
+								FROM `inquiry` 
+								INNER JOIN `cust_inquiry` ON `inquiry`.`inq_no`=`cust_inquiry`.`inq_no`  WHERE `inquiry`.`vehicleid` = '$query->id'")->result();
+			 		     
+			 		        return $query;
+			 		 }
+			 	else
+			 	{
+			 		$query = $this->db->query("SELECT `id` FROM `register` WHERE `phone`='$phone'");
+			 		if ($query->num_rows() > 0)
+			 		{
+			 			$query = $query->row();
+			 			$registervehicles = $this->db->query("SELECT `id` FROM `vehicle_details` WHERE `pid`= '$query->id'")->result();
+
+			 			foreach ($registervehicles as $vehicle) {
+			 				$inquiry = $this->db->query("SELECT `inquiry`.`inq_no` AS `inqno`, `inquiry`.`vehicleid` AS `vehicleid`, `inquiry`.`userid` AS `userid`, `inquiry`.`name` AS `username`, `inquiry`.`mobile` AS `usermobile`, `inquiry`.`useraccept`, `inquiry`.`driveraccept`, `inquiry`.`fromloc`, `inquiry`.`toloc`, `cust_inquiry`.`v_type` AS `vehicletype`, `cust_inquiry`.`v_rto` AS `rtono` 
+								
+								FROM `inquiry` 
+								INNER JOIN `cust_inquiry` ON `inquiry`.`inq_no`=`cust_inquiry`.`inq_no`  WHERE `inquiry`.`vehicleid` = '$vehicle->id'")->result();
+			 				$vehicle->inquiries = $inquiry;
+			 			};
+			 			return $registervehicles;
+
+			 		};
+			 		return false;
+
+			 		
+			 	};
+	     
+  	 }
 
 
  } 

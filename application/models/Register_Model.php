@@ -28,6 +28,46 @@
 
  		
  	 }
+
+
+ 	 public function vendorlogin($phone)
+ 	 {
+ 	 	$query = $this->db->query("SELECT * FROM `register` WHERE `phone`=$phone");
+ 		
+ 		if ($query->num_rows() > 0)
+ 			{
+ 			 
+ 		     $query = $this->db->query("SELECT `id`, `firstname`, `lastname` FROM `register` WHERE `phone`= $phone")->row();
+ 		     $query->type='vendor';
+ 		     return $query;
+
+ 			}
+ 		else
+ 		   {
+ 		   	 $query = $this->db->query("SELECT * FROM `vehicle_details` WHERE `sub_vendor_contact`=$phone");
+
+ 		   	 if ($query->num_rows() > 0)
+ 		   	 {
+ 		   	 	$query = $this->db->query("SELECT `vehicle_details`.`id`, `register`.`firstname`, `register`.`lastname` FROM `vehicle_details` INNER JOIN `register` ON `vehicle_details`.`pid`=`register`.`id`
+             	WHERE `vehicle_details`.`sub_vendor_contact`= $phone")->row();
+             $query->type='driver'; 		     
+ 		     return $query; 		   	 	
+ 		   	 }
+
+ 		   	 else
+ 		   	 {
+ 		   	 	return false;
+
+ 		   	 }
+             
+ 		   }
+
+
+
+ 		 
+ 	 }
+
+
  } 
  
  ?>
