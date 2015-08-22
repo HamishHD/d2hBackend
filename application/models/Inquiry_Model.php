@@ -11,7 +11,9 @@
 
  	 	if($query==true)
  	 	{
- 	 		$sql = $this->db->query("SELECT `vehicle_details`.`pid`, `register`.`firstname` FROM `vehicle_details` INNER JOIN `register` ON `register`.`id` = `vehicle_details`.`pid` WHERE `vehicle_details`.`id`= $vehicleid ")->row(); 
+ 	 		$rahul=(SELECT `vehicle_details`.`pid`, `register`.`firstname` FROM `vehicle_details` INNER JOIN `register` ON `register`.`id` = `vehicle_details`.`pid` WHERE `vehicle_details`.`id`);
+ 	 		$sql = $this->db->query("SELECT `vehicle_details`.`pid`, `register`.`firstname` FROM `vehicle_details` INNER JOIN `register` ON `register`.`id` = `vehicle_details`.`pid` WHERE `vehicle_details`.`id` = $vehicleid")->row(); 
+ 	 		print_r($rahul);
  	 		
  	 		$sql2 = $this->db->query("SELECT `name`, `contact` FROM `users` WHERE `id`='$userid'")->row();
  	 		
