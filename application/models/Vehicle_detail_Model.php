@@ -51,11 +51,60 @@
 			AND `vehicle_details`.`activestatus`=1
 			AND `vehicle_details`.`availabilitystatus`=1";
 		        $query = $this->db->query($sql)->result();
-				return $query;
-				
-		
- 		
+				return $query;		 		
  	 }
+
+ 	  public	function driverupdate($id,$latitude,$longitude)
+ 	  {
+ 	  	$query = $this->db->query("SELECT `activestatus` FROM `vehicle_details` WHERE `id`= '$id' AND `latitude` = '$latitude' AND `longitude` = '$longitude'")->row();
+ 	  	if(`activestatus` == 0)
+ 	  	{
+ 	  		$query = $this->db->query("UPDATE `vehicle_details` SET `activestatus` = 1 WHERE `id`= '$id'");
+ 	  	}
+
+ 	  	return $query;
+
+ 	  }
+
+ 	  public	function driverstatus($id,$latitude,$longitude)
+ 	  {
+ 	  	$sql = "SELECT `activestatus` FROM `vehicle_details` WHERE `id`= '$id' AND `latitude` = '$latitude' AND `longitude` = '$longitude'"; 	  	 
+ 	 	$query = $this->db->query($sql)->row();
+ 	 		
+ 	 		if($query->activestatus == '1')
+ 	  	
+ 	  	{
+ 	  		return true;
+ 	  		
+ 	  	}
+ 	  	else
+ 	  	{
+
+ 	  		return false;
+ 	  	};
+ 	  	
+ 	  }  
+
+ 	  	public	function driveravailabilitystatus($id,$latitude,$longitude)
+ 	  {
+ 	  	$sql = "SELECT `availabilitystatus` FROM `vehicle_details` WHERE `id`= '$id' AND `latitude` = '$latitude' AND `longitude` = '$longitude'"; 	
+
+
+ 	 	$query = $this->db->query($sql)->row();
+
+ 	  	if($query->availabilitystatus == '1')
+ 	  	{
+ 	  		return true;
+ 	  		 
+ 	  	}
+ 	  	else
+ 	  	{
+
+ 	  		return false;
+ 	  	};  	  
+ 	  }
+
+ 	 
  } 
  
  ?>
