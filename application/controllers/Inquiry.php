@@ -72,4 +72,6 @@
  	 	$message['json'] = $this->model->vehicleinquiry($phone);
  	 	$this->load->view('json', $message); 
  	 }
+
+ 	  
  }
