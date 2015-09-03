@@ -94,15 +94,19 @@
   	 public function checkuserstatusbyinquiryid($id)
   	 {
   	 	$sql = "SELECT `useraccept` FROM `inquiry` WHERE `inq_no`= '$id'";
- 	 	$query = $this->db->query($sql)->row();
+
+
+ 	 	 $query = $this->db->query($sql)->row();
+   
  	 		if($query->useraccept == '1')
  	 		{
  	 			return true;
+        
  	 		}
  	 		else
  	 		{
  	 			return false;
- 	 		};	 		
+ 	 		};	
 
 
   	 }  
@@ -110,7 +114,7 @@
   	 public function checkdriverstatusbyinquiryid($id)
   	 {
   	 	$sql = "SELECT `driveraccept` FROM `inquiry` WHERE `inq_no`= '$id'";
- 	 	$query = $this->db->query($sql)->row();
+ 	 	  $query = $this->db->query($sql)->row();
  	 		if($query->driveraccept == '1')
  	 		{
  	 			return true;

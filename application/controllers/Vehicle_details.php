@@ -32,19 +32,52 @@
  	 {
  	 	$type = $this->input->get('type');
  	 	$location1 = $this->input->get('location1'); 	 
- 	 	$location2 = $this->input->get('location2'); 	 	
+ 	 	$location2 = $this->input->get('location2'); 
  	 	$location1 = json_decode($location1);
- 	 	$location2 = json_decode($location2);  	 
- 	 	$latitude1 = $location1->latitude;
+ 	 	$location2 = json_decode($location2);           
+ 	 	$latitude1 = $location1->latitude;                    
  	 	$longitude1 = $location1->longitude;
  	 	$latitude2 = $location2->latitude;
- 	 	$longitude2 = $location2->longitude;
+ 	 	$longitude2 = $location2->longitude;          
  	 	$message['json'] = $this->model->vehicleinfo($latitude1,$longitude1,$latitude2,$longitude2,$type);
  	 	$this->load->view('json', $message);
 
+    	}
 
- 	 }
+     public	function driverupdate()
+     {
+     	$id = $this->input->get('id');
+     	$location = $this->input->get('location');
+     	$location = json_decode($location); 	 
+ 	 	$latitude = $location->latitude;
+ 	 	$longitude = $location->longitude;     	
+     	$message['json'] = $this->model->driverupdate($id,$latitude,$longitude);
+     	$this->load->view('json', $message);
+     }
 
+     public	function driverstatus()
+     {
+     	$id = $this->input->get('id');
+     	$location = $this->input->get('location');
+     	$location = json_decode($location); 	 
+ 	 	$latitude = $location->latitude;
+ 	 	$longitude = $location->longitude;     	
+     	$message['json'] = $this->model->driverstatus($id,$latitude,$longitude);
+     	$this->load->view('json', $message);
+     }
+
+     public	function driveravailabilitystatus()
+     {
+     	$id = $this->input->get('id');
+     	$location = $this->input->get('location');
+     	$location = json_decode($location); 	 
+ 	 	$latitude = $location->latitude;
+ 	 	$longitude = $location->longitude;     	
+     	$message['json'] = $this->model->driveravailabilitystatus($id,$latitude,$longitude);
+     	$this->load->view('json', $message);
+     }
+ 
+ 	 
 
 
  }
